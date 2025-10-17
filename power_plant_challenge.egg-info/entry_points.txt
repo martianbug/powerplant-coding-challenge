@@ -1,0 +1,2 @@
+[console_scripts]
+power-plant-cli = production_plan:main_cli

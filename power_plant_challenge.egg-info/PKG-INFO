@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: power-plant-challenge
+Version: 0.1.0
+Summary: REST API for energy production planning
+Author-email: Martín Serrano <m.serranojuste@gmail.com>
+Maintainer-email: Brett Cannon <brett@example.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: flask
+
+"""
+README
+======
+
+Production Plan API (Python, single-file)
+
+Overview
+--------
+This repository implements a REST API exposing POST /productionplan which accepts a JSON payload (matching the example_payloads of the challenge) and returns a JSON array of production values per powerplant matching example_response.json.
+
+Features
+- Flask-based REST API (single-file: app.py)
+- Heuristic unit-commitment algorithm (no LP solver):
+  - Computes effective pmax for wind turbines using wind percentage
+  - Computes marginal cost per MWh per plant from fuels and efficiency
+  - Greedy allocation by increasing cost, with iterative rebalancing to meet exact load while honoring pmin/pmax
+- Runtime error handling and logging to 'productionplan.log'
+- Returns HTTP 400 with error message for malformed payload or infeasible requests
+
+Requirements
+------------
+- Python 3.8+
+- Install dependencies:
+    pip install -r requirements.txt
+
+Example (run locally)
+---------------------
+1. Install dependencies
+   pip install Flask
+
+2. Run server
+   python app.py
+
+3. POST payload
+   curl -X POST -H "Content-Type: application/json" --data @payload.json http://127.0.0.1:5000/productionplan
+
+Notes
+-----
+- This solution is intentionally implemented without external LP/ILP solvers.
+- The algorithm is a greedy-plus-adjust heuristic. It performs well on typical inputs from the challenge, but may not be globally optimal in every edge case.
+
+"""

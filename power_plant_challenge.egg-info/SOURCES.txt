@@ -1,0 +1,9 @@
+README.md
+myREADME.md
+pyproject.toml
+power_plant_challenge.egg-info/PKG-INFO
+power_plant_challenge.egg-info/SOURCES.txt
+power_plant_challenge.egg-info/dependency_links.txt
+power_plant_challenge.egg-info/entry_points.txt
+power_plant_challenge.egg-info/requires.txt
+power_plant_challenge.egg-info/top_level.txt
